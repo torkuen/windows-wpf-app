@@ -4,6 +4,8 @@ using System.ComponentModel;
 using System.IO;
 using System.Runtime.CompilerServices;
 using System.Windows;
+using System.Windows.Input;
+using Microsoft.Win32;
 using MSProjectParser.Models;
 
 namespace MSProjectParser.ViewModels;
@@ -20,6 +22,7 @@ public class MainViewModel : INotifyPropertyChanged
     public MainViewModel()
     {
         _parser = new Models.MSProjectParser();
+        LoadFileCommand = new RelayCommand(LoadFile);
         LoadSampleData();
     }
 
@@ -43,6 +46,44 @@ public class MainViewModel : INotifyPropertyChanged
         }
     }
 
+    public ICommand LoadFileCommand { get; }
+
+    /// <summary>
+    /// Load an XML file selected by the user
+    /// </summary>
+    private void LoadFile()
+    {
+        var openFileDialog = new OpenFileDialog
+        {
+            Filter = "XML files (*.xml)|*.xml|All files (*.*)|*.*",
+            Title = "Select MS Project XML File"
+        };
+
+        if (openFileDialog.ShowDialog() == true)
+        {
+            LoadXmlFile(openFileDialog.FileName);
+        }
+    }
+
+    /// <summary>
+    /// Load XML file from specified path
+    /// </summary>
+    private void LoadXmlFile(string xmlFilePath)
+    {
+        try
+        {
+            var parsedTasks = _parser.ParseXml(xmlFilePath);
+            Tasks = new ObservableCollection<ProjectTask>(parsedTasks);
+            
+            // Update project name from file name
+            ProjectName = Path.GetFileNameWithoutExtension(xmlFilePath);
+        }
+        catch (Exception ex)
+        {
+            MessageBox.Show($"Error loading XML file: {ex.Message}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+        }
+    }
+
     /// <summary>
     /// Load sample MS Project XML data
     /// </summary>
@@ -56,8 +97,7 @@ public class MainViewModel : INotifyPropertyChanged
 
             if (File.Exists(xmlFilePath))
             {
-                var parsedTasks = _parser.ParseXml(xmlFilePath);
-                Tasks = new ObservableCollection<ProjectTask>(parsedTasks);
+                LoadXmlFile(xmlFilePath);
             }
             else
             {
@@ -76,4 +116,29 @@ public class MainViewModel : INotifyPropertyChanged
     {
         PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
     }
+}
+
+/// <summary>
+/// Simple RelayCommand implementation for ICommand
+/// </summary>
+public class RelayCommand : ICommand
+{
+    private readonly Action _execute;
+    private readonly Func<bool>? _canExecute;
+
+    public RelayCommand(Action execute, Func<bool>? canExecute = null)
+    {
+        _execute = execute ?? throw new ArgumentNullException(nameof(execute));
+        _canExecute = canExecute;
+    }
+
+    public event EventHandler? CanExecuteChanged
+    {
+        add => CommandManager.RequerySuggested += value;
+        remove => CommandManager.RequerySuggested -= value;
+    }
+
+    public bool CanExecute(object? parameter) => _canExecute == null || _canExecute();
+
+    public void Execute(object? parameter) => _execute();
 }

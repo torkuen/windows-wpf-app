@@ -41,7 +41,8 @@ public class MSProjectParser
             Start = ParseDateTime(taskElement.Element(_namespace + "Start")),
             Finish = ParseDateTime(taskElement.Element(_namespace + "Finish")),
             Duration = taskElement.Element(_namespace + "Duration")?.Value ?? string.Empty,
-            PercentComplete = ParseInt(taskElement.Element(_namespace + "PercentComplete"))
+            PercentComplete = ParseInt(taskElement.Element(_namespace + "PercentComplete")),
+            CommitmentType = ParseInt(taskElement.Element(_namespace + "CommitmentType"))
         };
 
         return task;

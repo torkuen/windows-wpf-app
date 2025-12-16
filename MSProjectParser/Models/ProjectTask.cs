@@ -18,6 +18,7 @@ public class ProjectTask : INotifyPropertyChanged
     private DateTime _finish;
     private string _duration = string.Empty;
     private int _percentComplete;
+    private int _commitmentType;
 
     public int UID
     {
@@ -95,6 +96,16 @@ public class ProjectTask : INotifyPropertyChanged
         set
         {
             _percentComplete = value;
+            OnPropertyChanged();
+        }
+    }
+
+    public int CommitmentType
+    {
+        get => _commitmentType;
+        set
+        {
+            _commitmentType = value;
             OnPropertyChanged();
         }
     }
