@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Project xmlns="http://schemas.microsoft.com/project">
+  <Name>Sample Project</Name>
+  <Tasks>
+    <Task>
+      <UID>1</UID>
+      <ID>1</ID>
+      <Name>Project Planning</Name>
+      <OutlineLevel>1</OutlineLevel>
+      <Start>2024-01-01T08:00:00</Start>
+      <Finish>2024-01-15T17:00:00</Finish>
+      <Duration>PT80H0M0S</Duration>
+      <PercentComplete>75</PercentComplete>
+      <CommitmentType>0</CommitmentType>
+    </Task>
+    <Task>
+      <UID>2</UID>
+      <ID>2</ID>
+      <Name>Define Requirements</Name>
+      <OutlineLevel>2</OutlineLevel>
+      <Start>2024-01-01T08:00:00</Start>
+      <Finish>2024-01-05T17:00:00</Finish>
+      <Duration>PT40H0M0S</Duration>
+      <PercentComplete>100</PercentComplete>
+      <CommitmentType>0</CommitmentType>
+    </Task>
+    <Task>
+      <UID>3</UID>
+      <ID>3</ID>
+      <Name>Create Design Documents</Name>
+      <OutlineLevel>2</OutlineLevel>
+      <Start>2024-01-08T08:00:00</Start>
+      <Finish>2024-01-15T17:00:00</Finish>
+      <Duration>PT40H0M0S</Duration>
+      <PercentComplete>50</PercentComplete>
+      <CommitmentType>0</CommitmentType>
+    </Task>
+    <Task>
+      <UID>4</UID>
+      <ID>4</ID>
+      <Name>Development</Name>
+      <OutlineLevel>1</OutlineLevel>
+      <Start>2024-01-16T08:00:00</Start>
+      <Finish>2024-02-28T17:00:00</Finish>
+      <Duration>PT240H0M0S</Duration>
+      <PercentComplete>30</PercentComplete>
+      <CommitmentType>0</CommitmentType>
+    </Task>
+    <Task>
+      <UID>5</UID>
+      <ID>5</ID>
+      <Name>Backend Development</Name>
+      <OutlineLevel>2</OutlineLevel>
+      <Start>2024-01-16T08:00:00</Start>
+      <Finish>2024-02-10T17:00:00</Finish>
+      <Duration>PT120H0M0S</Duration>
+      <PercentComplete>40</PercentComplete>
+      <CommitmentType>0</CommitmentType>
+    </Task>
+    <Task>
+      <UID>6</UID>
+      <ID>6</ID>
+      <Name>Frontend Development</Name>
+      <OutlineLevel>2</OutlineLevel>
+      <Start>2024-02-11T08:00:00</Start>
+      <Finish>2024-02-28T17:00:00</Finish>
+      <Duration>PT120H0M0S</Duration>
+      <PercentComplete>20</PercentComplete>
+      <CommitmentType>0</CommitmentType>
+    </Task>
+    <Task>
+      <UID>7</UID>
+      <ID>7</ID>
+      <Name>Testing</Name>
+      <OutlineLevel>1</OutlineLevel>
+      <Start>2024-03-01T08:00:00</Start>
+      <Finish>2024-03-15T17:00:00</Finish>
+      <Duration>PT80H0M0S</Duration>
+      <PercentComplete>0</PercentComplete>
+      <CommitmentType>0</CommitmentType>
+    </Task>
+    <Task>
+      <UID>8</UID>
+      <ID>8</ID>
+      <Name>Unit Testing</Name>
+      <OutlineLevel>2</OutlineLevel>
+      <Start>2024-03-01T08:00:00</Start>
+      <Finish>2024-03-08T17:00:00</Finish>
+      <Duration>PT40H0M0S</Duration>
+      <PercentComplete>0</PercentComplete>
+      <CommitmentType>0</CommitmentType>
+    </Task>
+    <Task>
+      <UID>9</UID>
+      <ID>9</ID>
+      <Name>Integration Testing</Name>
+      <OutlineLevel>2</OutlineLevel>
+      <Start>2024-03-09T08:00:00</Start>
+      <Finish>2024-03-15T17:00:00</Finish>
+      <Duration>PT40H0M0S</Duration>
+      <PercentComplete>0</PercentComplete>
+      <CommitmentType>0</CommitmentType>
+    </Task>
+  </Tasks>
+</Project>
